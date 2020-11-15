@@ -1,11 +1,11 @@
-class Character
+class Characters
     attr_accessor :name, :description
 
     @@all = []
 
  
-    def initialize(name,  description)
-        @name = name 
+    def initialize(name, description)
+        @name = name
         @description = description
         @@all << self
     end
@@ -16,12 +16,5 @@ class Character
 
     def self.clear_all
         @@all = []
-    end
-
-    
-    def self.display_character(index)
-        character = self.all[index]       
-        puts "#{character.name}"
-        puts "#{character.description}"
     end
 end

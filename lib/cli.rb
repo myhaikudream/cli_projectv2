@@ -1,3 +1,5 @@
+require 'pry'
+
 class Cli
 
     @@name = ["Thor", "Wolverine", "Iron Man", "Hulk", "Silver Surfer"]
@@ -6,6 +8,7 @@ class Cli
     start
     list_of_characters
     get_character_choice
+    display_info
    end
 
      
@@ -26,18 +29,21 @@ class Cli
         puts "Please choose 1-5 to learn more about that character."
         input = gets.chomp
             if input.to_i.between?(1,5)
-                display_character_info(input)                               
-            elsif input == "exit"
+                display_character_info(input) 
+            elsif input == "Let it go"
                 exit_prg  
             end
         end 
     end
+   
+    def display_character_info(input)
+        api = Api.new(input)
+        api.create_character 
+    end
 
-   def display_character_info(input)
-    query = self.class.name[input.to_i - 1]
-    api = Api.new(query)
-    api.create_character
-               
+    def display_info(index)
+        puts "#{character.name}"
+        puts "#{character.description}"
     end
 
     def exit_prg 
