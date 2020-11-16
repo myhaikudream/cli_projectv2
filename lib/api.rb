@@ -13,6 +13,7 @@ class Api
         character = get_attributes
         #binding.pry
         Characters.new(character["name"], character["description"])
+       
     end
 
     def get_attributes

@@ -2,15 +2,13 @@ require 'pry'
 
 class Cli
 
-    @@name = ["Thor", "Wolverine", "Iron Man", "Hulk", "Silver Surfer"]
-
+  
    def initialize
     start
     list_of_characters
     get_character_choice
-    display_info
+    display_character_blah
    end
-
      
     def start
        puts "Welcome to Marvel Characters."
@@ -35,16 +33,8 @@ class Cli
             end
         end 
     end
-   
-    def display_character_info(input)
-        api = Api.new(input)
-        api.create_character 
-    end
 
-    def display_info(index)
-        puts "#{character.name}"
-        puts "#{character.description}"
-    end
+
 
     def exit_prg 
              puts "Your brain must hurt from learning all of that information!"
