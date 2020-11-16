@@ -1,7 +1,24 @@
 require 'pry'
 
 class Cli
+    attr_accessor :name, :description
 
+    @@all = []
+
+ 
+    def initialize(name, description)
+        @name = name
+        @description = description
+        @@all << self
+    end
+
+    def self.all
+        @@all
+    end
+
+    def self.clear_all
+        @@all = []
+    end
   
    def initialize
     start
@@ -21,7 +38,10 @@ class Cli
             puts  "#{index +1}. #{name}" 
     end
 
-        
+    def display_character_info(input)
+        api = Api.new
+        api.create_character 
+    end
     
     def get_character_choice
         puts "Please choose 1-5 to learn more about that character."
@@ -36,7 +56,24 @@ class Cli
 
 
 
+    def get_characters
+        name = ["Thor", "Wolverine", "Iron Man", "Hulk", "Silver Surfer"]
+        name.each_with_index do |name, index| 
+             puts  "#{index +1}. #{name}"
+     end    
+
+     
+
+     def display_character_blah
+        
+        puts "Name:   #{character.name}"
+        puts "Bio:   #{character.description}"
+        gets 
+
+    end
+
     def exit_prg 
              puts "Your brain must hurt from learning all of that information!"
     end
 end
+end 
