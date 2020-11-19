@@ -1,5 +1,8 @@
 require 'pry'
 
+require_relative './characters.rb'
+require 'open-uri'
+
 class Api
         
     attr_accessor :query
@@ -9,10 +12,10 @@ class Api
     end
 
 
-    def create_character 
-        character = get_attributes(query)  
+    def create_character (input)
+        character = get_attributes(input)  
         #binding.pry
-        Cli.new(character["name"], character["description"])
+        Characters.new(character["name"], character["description"])
        
     end
 
@@ -29,14 +32,19 @@ class Api
                      url = "https://gateway.marvel.com/v1/public/characters?name=hulk&ts=1&apikey=8caa4ab582303971d8bf3c9b9dc561c7&hash=914de9aa1ee8c5d93a7e51f3b28e24ca"
         when "5"
                      url = "https://gateway.marvel.com/v1/public/characters?name=silver%20surfer&ts=1&apikey=8caa4ab582303971d8bf3c9b9dc561c7&hash=914de9aa1ee8c5d93a7e51f3b28e24ca"          
+        
         end
+        #binding.pry
+        puts url 
         uri = URI(url)
         response = Net::HTTP.get(uri)
         JSON.parse(response)
-         response = HTTParty.get(url)
+        #  response = HTTParty.get(url)
         # response.parsed_response
+    
     end
 end
+'let us pry'
 
 
 
