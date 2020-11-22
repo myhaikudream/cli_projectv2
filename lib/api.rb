@@ -1,4 +1,4 @@
-require 'pry'
+
 
 class Api
         
@@ -8,7 +8,7 @@ class Api
         @query = query
     end
 
-
+    #this method goes into the url and iterates the nested hash information to pull the data about the selected character
     def create_character (input)
         character = get_attributes(input)  
         #binding.pry
@@ -16,6 +16,7 @@ class Api
        
     end
 
+    #this method uses the selected character to find the url that correlates with that character & parses that information using JSon
     def get_attributes (query)
        
         case query 
