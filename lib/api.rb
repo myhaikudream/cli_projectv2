@@ -32,7 +32,7 @@ class Api
         
         end
         #binding.pry
-        puts url 
+       
         uri = URI(url)
         response = Net::HTTP.get(uri)
         JSON.parse(response)
