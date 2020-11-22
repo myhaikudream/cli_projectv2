@@ -14,11 +14,6 @@ class Characters
         @@all
     end
 
-    def self.clear_all
-        @@all = []
-    end
-
-
     def display_character_info(input)
         api = Api.new(query)
         api.create_character     
@@ -29,10 +24,7 @@ class Characters
         
         puts "Name:   #{name}"
         puts "Bio:   #{description}"
-        gets 
-
-    end
+        end
 
      
 end
-

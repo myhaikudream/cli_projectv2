@@ -1,8 +1,5 @@
 require 'pry'
 
-require_relative './characters.rb'
-require 'open-uri'
-
 class Api
         
     attr_accessor :query
@@ -15,7 +12,7 @@ class Api
     def create_character (input)
         character = get_attributes(input)  
         #binding.pry
-        Characters.new(character["name"], character["description"])
+        Characters.new(character["data"]["results"][0]["name"],character["data"]["results"][0]["description"])
        
     end
 
@@ -39,20 +36,8 @@ class Api
         uri = URI(url)
         response = Net::HTTP.get(uri)
         JSON.parse(response)
-        #  response = HTTParty.get(url)
-        # response.parsed_response
+         response = HTTParty.get(url)
+         response.parsed_response
     
     end
 end
-'let us pry'
-
-
-
-
-
-
-
-
-
-
-
