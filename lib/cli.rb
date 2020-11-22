@@ -35,7 +35,7 @@ class Cli
     # this method asks the user to make a choice then gets their input & gives them either the information 
     #about their choice then restarts the menu or exits the program
     def get_character_choice
-         puts "Please choose 1-5 to learn more about that character."
+         puts "Please choose 1-5 to learn more about that character or type 'Let it go' to exit."
          input = gets.chomp
              if input.to_i.between?(1,5)
                  display_character_info(input) 
