@@ -6,7 +6,7 @@ class Cli
        
     end
 
-    #this method puts out the welcome then starts the next two methods desired
+    #this method puts out a string to welcome the user then starts the next two methods desired
     def start
         puts "Welcome to Marvel Characters."
         self.list_of_characters
@@ -14,7 +14,7 @@ class Cli
                
     end
  
-    #this method creates an index of the characters 
+    #this method uses an array to create an index of the characters 
     def list_of_characters
          name = ["Thor", "Wolverine", "Iron Man", "Hulk", "Silver Surfer"]
         name.each_with_index do |name, index| 
@@ -33,7 +33,7 @@ class Cli
      
 
     # this method asks the user to make a choice then gets their input & gives them either the information 
-    #about their choice then restarts the menu or exits the program
+    # about their choice then restarts the menu or exits the program
     def get_character_choice
          puts "Please choose 1-5 to learn more about that character or type 'Let it go' to exit."
          input = gets.chomp

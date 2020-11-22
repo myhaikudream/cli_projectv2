@@ -16,7 +16,8 @@ class Api
        
     end
 
-    #this method uses the selected character to find the url that correlates with that character & parses that information using JSon
+    #this method uses the selected character to find the url that correlates with that character 
+    #& parses that information using Json and HTTParty
     def get_attributes (query)
        
         case query 
