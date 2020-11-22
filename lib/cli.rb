@@ -41,5 +41,6 @@ class Cli
  
     def exit_prg 
               puts "Your brain must hurt from learning all of that information!"
+              exit 
     end
 end
